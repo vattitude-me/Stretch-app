@@ -1,5 +1,3 @@
-console.log("test of call")
-
 $(document).ready(function() {
 
 
@@ -75,10 +73,6 @@ function clockUpdate() {
 }
 
 
-// request permission on page load
-document.addEventListener('DOMContentLoaded', function() {
-
-});
 
 
 function notifyMe() {
@@ -92,6 +86,7 @@ function notifyMe() {
     // Let's check if the user is okay to get some notification
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
+        alert(`Permission is ${Notification.permission}`);
         var notification = new Notification("Hi there!");
     }
 
@@ -108,6 +103,7 @@ function notifyMe() {
 
             // If the user is okay, let's create a notification
             if (permission === "granted") {
+                alert(`Permission is ${Notification.permission}`);
                 var notification = new Notification("Hi there!");
             }
         });
