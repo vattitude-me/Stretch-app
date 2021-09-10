@@ -101,18 +101,24 @@ $(document).ready(function() {
     $("#Notiftext").val(defaulNotif);
 
     //main notification feature
-    //notifyMe();
+    checkNotify();
 
     $('#testNotif').click(function() {
         notifyMe();
-        $.playSound('../assets/audio/positive-1.wav');
     });
 
 });
 
 
-
 function notifyMe() {
+    if (Notification.permission === "granted") {
+        var notification = new Notification(defaulNotif);
+        $.playSound('../assets/audio/positive-1.wav');
+    }
+}
+
+
+function checkNotify() {
 
 
     // Let's check if the browser supports notifications
