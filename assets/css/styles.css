@@ -11311,13 +11311,12 @@ header.masthead .h1 {
     width: 70px;
 }
 
-#savefreq {
+.settingbtn {
     margin: 15px;
 }
 
 .text-white-80 {
     color: rgba(255, 255, 255, 0.8) !important;
-    font-size: 1.05rem !important;
 }
 
 .text-white-90 {

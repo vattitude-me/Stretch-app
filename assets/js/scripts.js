@@ -101,7 +101,12 @@ $(document).ready(function() {
     $("#Notiftext").val(defaulNotif);
 
     //main notification feature
-    notifyMe();
+    //notifyMe();
+
+    $('#testNotif').click(function() {
+        notifyMe();
+        $.playSound('../Stretch-app/assets/audio/positive-1.wav');
+    });
 
 });
 
@@ -118,12 +123,10 @@ function notifyMe() {
     // Let's check if the user is okay to get some notification
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification("Sample Test Notification from Stretch Reminder");
+        var notification = new Notification("Sample Pop-up - Stand-up and shake a bit");
     }
 
     // Otherwise, we need to ask the user for permission
-    // Note, Chrome does not implement the permission static property
-    // So we have to check for NOT 'denied' instead of 'default'
     else if (Notification.permission !== 'denied') {
         Notification.requestPermission(function(permission) {
 
@@ -134,13 +137,29 @@ function notifyMe() {
 
             // If the user is okay, let's create a notification
             if (permission === "granted") {
-                var notification = new Notification("Sample Test Notification from Stretch Reminder!");
+                var notification = new Notification("Sample Pop-up - Stand-up and shake a bit");
             }
         });
     } else {
-        alert(`Permission is ${Notification.permission}`);
+        alert(`Permission to notify is ${Notification.permission}`);
     }
 
-
-
 }
+
+
+//Function to play audio notification
+(function($) {
+    $.extend({
+        playSound: function() {
+            return $(
+                '<audio class="sound-player" autoplay="autoplay" style="display:none;">' +
+                '<source src="' + arguments[0] + '" />' +
+                '<embed src="' + arguments[0] + '" hidden="true" autostart="true" loop="false"/>' +
+                '</audio>'
+            ).appendTo('body');
+        },
+        stopSound: function() {
+            $(".sound-player").remove();
+        }
+    });
+})(jQuery);

@@ -41,9 +41,10 @@
                 </div>
                 <div class="col-lg-8 align-self-baseline">
                     <p class="text-white-90 mb-5 digital-clock">00:00:00</p>
-                    <p class="text-white-80 mb-4">One app to keep you reminded to stretch during long hours of work</p>
-                    <p class="text-white-80 mb-4">(Allow Notification Popup- for better experience)</p>
-                    <a class="btn btn-primary btn-xl" id="togglereminder">Pause Reminder</a>
+                    <h4 class="text-white-80 mb-3">One app to keep you reminded to stretch during long hours of work</h4>
+                    <h6 class="text-white-80  mb-5">(Allow Notification Popup- for better experience)</h6>
+                    <a class="btn btn-primary btn-xl mb-2" id="togglereminder">Pause Reminder</a>
+                    <h6 class="text-white-80 ">next reminder in <span id="nextrem">30</span> minutes</h6>
                 </div>
             </div>
         </div>
@@ -63,7 +64,7 @@
 
                             <input type="text" id="timerupdate" name="timerupdate">
                             <label for="timerupdate">Minutes</label><br>
-                            <a class="btn btn-primary btn-sm" id="savefreq">Save</a>
+                            <a class="btn btn-primary btn-sm settingbtn" id="savefreq">Save</a>
 
                         </div>
                     </div>
@@ -87,6 +88,7 @@
                         <div class="mb-2"><i class="bi-heart fs-1 text-primary"></i></div>
                         <h3 class="h4 mb-2">Custom Notification Text</h3>
                         <input type="text" id="Notiftext" name="Notiftext">
+                        <a class="btn btn-primary btn-sm settingbtn" id="testNotif">Test Notification</a>
                     </div>
                 </div>
             </div>
