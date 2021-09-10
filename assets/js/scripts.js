@@ -105,7 +105,8 @@ $(document).ready(function() {
 
     $('#testNotif').click(function() {
         notifyMe();
-        $.playSound('../Stretch-app/assets/audio/positive-1.wav');
+        //$.playSound('https://assets.mixkit.co/sfx/preview/mixkit-positive-notification-951.mp3');
+        $.playSound('../assets/audio/positive-1.wav');
     });
 
 });
