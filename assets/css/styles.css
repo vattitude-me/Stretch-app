@@ -11307,10 +11307,20 @@ header.masthead .h1 {
     opacity: 1;
 }
 
-#defaulttimer {
+#timerupdate {
     width: 70px;
 }
 
 #savefreq {
     margin: 15px;
+}
+
+.text-white-80 {
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 1.05rem !important;
+}
+
+.text-white-90 {
+    color: rgba(255, 255, 255, 0.9) !important;
+    font-size: 2.20rem !important;
 }
