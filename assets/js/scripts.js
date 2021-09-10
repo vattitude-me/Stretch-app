@@ -28,6 +28,7 @@ $(document).ready(function() {
 
     //Test Notification
     $('#testNotif').click(function() {
+        defaulNotif = $('#Notiftext').val();
         notifyMe();
     });
 
@@ -79,9 +80,15 @@ function beginStrEvent() {
 
 function notifyMe() {
     if (Notification.permission === "granted") {
-        var notification = new Notification(defaulNotif);
+        var notification = new Notification(defaulNotif, {
+            icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
+            body: 'Hey there! You\'ve been notified!',
+        });
         $.playSound('../assets/audio/positive-1.wav');
     }
+    setTimeout(function() {
+        notification.close()
+    }, 4000);
 }
 
 
