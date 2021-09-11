@@ -69,6 +69,7 @@ function startNotif() {
     nIntervId = setInterval(beginStrEvent, intervalLoop);
 
     //Start the countdown timer
+    temptimer = defaultimer;
     clearInterval(nCountInterv);
     nCountInterv = setInterval(begincountdwntimer, 60000);
 }
