@@ -10,7 +10,7 @@
 
 // Global variables
 var defaultimer = 3;
-var defaulNotif = "Stand-up and shake a bit";
+var defaulNotif = "Stand-up & Stretch A Bit";
 var nIntervId;
 var nCountInterv;
 var temptimer = defaultimer;
@@ -100,7 +100,7 @@ function notifyMe() {
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
-            body: 'Stand up and stretch a bit!!',
+            body: 'Stay Active',
         });
         $.playSound('../assets/audio/positive-1.wav');
     }
