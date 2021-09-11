@@ -121,7 +121,11 @@ function checkNotify() {
     // Let's check if the user is okay to get some notification
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification("Welcome to Stretch Reminder");
+        var notification = new Notification(defaulNotif, {
+            icon: 'https://www.vattitude.me/assets/img/Logo.png',
+            body: 'Stay Active',
+        });
+        $.playSound('../assets/audio/positive-1.wav');
     }
 
     // Otherwise, we need to ask the user for permission
@@ -135,7 +139,11 @@ function checkNotify() {
 
             // If the user is okay, let's create a notification
             if (permission === "granted") {
-                var notification = new Notification("Welcome to Stretch Reminder");
+                var notification = new Notification(defaulNotif, {
+                    icon: 'https://www.vattitude.me/assets/img/Logo.png',
+                    body: 'Stay Active',
+                });
+                $.playSound('../assets/audio/positive-1.wav');
             }
         });
     } else {
