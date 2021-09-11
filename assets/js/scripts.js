@@ -99,14 +99,14 @@ function begincountdwntimer() {
 function notifyMe() {
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
-            icon: 'http://cdn.sstatic.net/stackexchange/img/logos/so/so-icon.png',
-            body: 'Hey there! You\'ve been notified!',
+            icon: 'https://www.vattitude.me/assets/img/Logo.png',
+            body: 'Stand up and stretch a bit!!',
         });
         $.playSound('../assets/audio/positive-1.wav');
     }
     setTimeout(function() {
         notification.close()
-    }, 4000);
+    }, 8000);
 }
 
 
@@ -121,7 +121,7 @@ function checkNotify() {
     // Let's check if the user is okay to get some notification
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification("Sample Pop-up - Stand-up and shake a bit");
+        var notification = new Notification("Welcome to Stretch Reminder");
     }
 
     // Otherwise, we need to ask the user for permission
@@ -135,7 +135,7 @@ function checkNotify() {
 
             // If the user is okay, let's create a notification
             if (permission === "granted") {
-                var notification = new Notification("Sample Pop-up - Stand-up and shake a bit");
+                var notification = new Notification("Welcome to Stretch Reminder");
             }
         });
     } else {
