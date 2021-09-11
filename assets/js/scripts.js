@@ -9,11 +9,12 @@
 
 
 // Global variables
-var defaultimer = 3;
+var defaultimer = 45;
 var defaulNotif = "Stand-up & Stretch A Bit";
 var nIntervId;
 var nCountInterv;
 var temptimer = defaultimer;
+var StretchLink = "https://stretch.vattitude.me/assets/img/Vattitude_Stretches.jpg"
 
 $(document).ready(function() {
 
@@ -100,12 +101,17 @@ function notifyMe() {
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
-            body: 'Stay Active',
+            body: 'Click to Stretch',
+
         });
         $.playSound('../assets/audio/positive-1.wav');
         setTimeout(function() {
             notification.close()
         }, 8000);
+        notification.onclick = function(event) {
+            event.preventDefault(); // prevent the browser from focusing the Notification's tab
+            window.open(StretchLink, '_blank');
+        }
     }
 
 }
@@ -122,11 +128,14 @@ function checkNotify() {
     // Let's check if the user is okay to get some notification
     else if (Notification.permission === "granted") {
         // If it's okay let's create a notification
-        var notification = new Notification(defaulNotif, {
+        var notification = new Notification("Welcome to Stretch Reminder", {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
-            body: 'Stay Active',
+            body: 'Get Active',
         });
-        $.playSound('../assets/audio/positive-1.wav');
+        setTimeout(function() {
+            notification.close()
+        }, 8000);
+
     }
 
     // Otherwise, we need to ask the user for permission
@@ -140,9 +149,9 @@ function checkNotify() {
 
             // If the user is okay, let's create a notification
             if (permission === "granted") {
-                var notification = new Notification(defaulNotif, {
+                var notification = new Notification("Welcome to Stretch Reminder", {
                     icon: 'https://www.vattitude.me/assets/img/Logo.png',
-                    body: 'Stay Active',
+                    body: 'Get Active',
                 });
                 $.playSound('../assets/audio/positive-1.wav');
             }
