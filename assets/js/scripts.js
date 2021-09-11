@@ -12,6 +12,8 @@
 var defaultimer = 3;
 var defaulNotif = "Stand-up and shake a bit";
 var nIntervId;
+var nCountInterv;
+var temptimer = defaultimer;
 
 $(document).ready(function() {
 
@@ -56,20 +58,27 @@ $(document).ready(function() {
 
 //Main notification
 function startNotif() {
-    $(".running").show();
-    $(".stopped").hide();
+    $(".txtRunning").show();
+    $(".txtPaused").hide();
     $("#togglereminder").text("Stop Reminder");
 
     intervalLoop = defaultimer * 60 * 1000
     $("#nextrem").text(defaultimer);
     clearInterval(nIntervId);
     nIntervId = setInterval(beginStrEvent, intervalLoop);
+
+    //Start the countdown timer
+    temptimer = defaultimer;
+    clearInterval(nCountInterv);
+    nCountInterv = setInterval(begincountdwntimer, 60000);
 }
+
 
 function stopNotif() {
     clearInterval(nIntervId);
-    $(".running").hide();
-    $(".stopped").show();
+    clearInterval(nCountInterv);
+    $(".txtRunning").hide();
+    $(".txtPaused").show();
     $("#togglereminder").text("Start Reminder");
 }
 
@@ -77,6 +86,15 @@ function beginStrEvent() {
     console.log("Event beginStrEvent triggered")
     notifyMe();
 }
+
+
+//Countdown Timer event
+function begincountdwntimer() {
+    temptimer = temptimer - 1;
+    $("#nextrem").text(temptimer);
+}
+
+
 
 function notifyMe() {
     if (Notification.permission === "granted") {
