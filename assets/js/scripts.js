@@ -68,7 +68,6 @@ function startNotif() {
     nIntervId = setInterval(beginStrEvent, intervalLoop);
 
     //Start the countdown timer
-    temptimer = defaultimer;
     clearInterval(nCountInterv);
     nCountInterv = setInterval(begincountdwntimer, 60000);
 }
@@ -97,6 +96,7 @@ function begincountdwntimer() {
 
 
 function notifyMe() {
+    temptimer = defaultimer;
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
