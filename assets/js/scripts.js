@@ -68,10 +68,7 @@ function startNotif() {
     clearInterval(nIntervId);
     nIntervId = setInterval(beginStrEvent, intervalLoop);
 
-    //Start the countdown timer
-    temptimer = defaultimer;
-    clearInterval(nCountInterv);
-    nCountInterv = setInterval(begincountdwntimer, 60000);
+    startcountdown();
 }
 
 
@@ -84,21 +81,32 @@ function stopNotif() {
 }
 
 function beginStrEvent() {
-    console.log("Event beginStrEvent triggered")
+    console.log(defaultimer + " beginStrEvent - " + temptimer);
     notifyMe();
 }
 
 
 //Countdown Timer event
-function begincountdwntimer() {
+function cntdwntimerInt() {
+    console.log(defaultimer + " interval - " + temptimer);
     temptimer = temptimer - 1;
     $("#nextrem").text(temptimer);
+}
+
+function startcountdown() {
+    //Start the countdown timer
+    console.log(defaultimer + " startcountdown - " + temptimer);
+    temptimer = defaultimer;
+    $("#nextrem").text(temptimer);
+    clearInterval(nCountInterv);
+    nCountInterv = setInterval(cntdwntimerInt, 60000);
 }
 
 
 
 function notifyMe() {
-    temptimer = defaultimer;
+    console.log(defaultimer + " notifyMe - " + temptimer);
+
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
@@ -114,6 +122,7 @@ function notifyMe() {
             window.open(StretchLink, '_blank');
         }
     }
+    startcountdown();
 
 }
 
