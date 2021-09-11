@@ -103,10 +103,11 @@ function notifyMe() {
             body: 'Stay Active',
         });
         $.playSound('../assets/audio/positive-1.wav');
+        setTimeout(function() {
+            notification.close()
+        }, 8000);
     }
-    setTimeout(function() {
-        notification.close()
-    }, 8000);
+
 }
 
 
