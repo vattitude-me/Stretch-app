@@ -11327,3 +11327,16 @@ header.masthead .h1 {
 .mr-auto {
     margin: 6px;
 }
+
+.hidecontent {
+    display: none;
+}
+
+@media (min-width: 50px) and (max-width: 768px) {
+    .hidden-mobileTab {
+        display: none !important;
+    }
+    .show-mobileTab {
+        display: block !important;
+    }
+}
