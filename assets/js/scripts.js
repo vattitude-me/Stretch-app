@@ -55,6 +55,7 @@ $(document).ready(function() {
 
     });
 
+
 });
 
 //Main notification
@@ -95,8 +96,8 @@ function cntdwntimerInt() {
 
 function startcountdown() {
     //Start the countdown timer
-    console.log(defaultimer + " startcountdown - " + temptimer);
     temptimer = defaultimer;
+    console.log(defaultimer + " startcountdown - " + temptimer);
     $("#nextrem").text(temptimer);
     clearInterval(nCountInterv);
     nCountInterv = setInterval(cntdwntimerInt, 60000);
@@ -106,6 +107,9 @@ function startcountdown() {
 
 function notifyMe() {
     console.log(defaultimer + " notifyMe - " + temptimer);
+
+    $("#myToast").toast({ delay: 7000 });
+    $("#myToast").toast('show')
 
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
