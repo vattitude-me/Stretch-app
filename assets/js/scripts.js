@@ -125,7 +125,7 @@ function notifyMe() {
     } else {
         $("#myToast").toast({ delay: 7000 });
         $("#myToast").toast('show');
-        alert("Stretch Event Triggered");
+        alert(defaulNotif);
     }
     startcountdown();
 
