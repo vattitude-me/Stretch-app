@@ -108,9 +108,6 @@ function startcountdown() {
 function notifyMe() {
     console.log(defaultimer + " notifyMe - " + temptimer);
 
-    $("#myToast").toast({ delay: 7000 });
-    $("#myToast").toast('show')
-
     if (Notification.permission === "granted") {
         var notification = new Notification(defaulNotif, {
             icon: 'https://www.vattitude.me/assets/img/Logo.png',
@@ -125,6 +122,10 @@ function notifyMe() {
             event.preventDefault(); // prevent the browser from focusing the Notification's tab
             window.open(StretchLink, '_blank');
         }
+    } else {
+        $("#myToast").toast({ delay: 7000 });
+        $("#myToast").toast('show');
+        alert("Stretch Event Triggered");
     }
     startcountdown();
 
