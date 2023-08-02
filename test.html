@@ -45,7 +45,7 @@
     <header id="header" class="fixed-top ">
         <div class="container d-flex align-items-center">
 
-            <h1 class="logo me-auto"><a href="index.html">STRETCH REMINDER</a></h1>
+            <h1 class="logo me-auto"><a href="index.html">Test REMINDER</a></h1>
             <!-- Uncomment below if you prefer to use an image logo -->
             <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -70,8 +70,8 @@
             <div class="row">
                 <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="zoom-in" data-aos-delay="300">
                     <div class="hidemobile">
-                        <h1>To Keep You Active and Going</h1>
-                        <h2><a href="test.html">- </a>Current Time - <span class="digital-clock"></span></h2>
+                        <h1>Test Going</h1>
+                        <h2>Current Time - <span class="digital-clock"></span></h2>
                         <div class="d-flex justify-content-center justify-content-lg-start">
                             <a id="togglereminder" class="btn-get-started">Stop Reminder</a>
                             <div class="btn-watch-video txtRunning ">
@@ -233,6 +233,75 @@
     <!-- Stretch App JS File -->
     <script src="assets/js/main.js"></script>
     <script src="assets/js/stretch.js"></script>
+
+
+
+    <style type='text/css'>
+        .embeddedServiceHelpButton .helpButton .uiButton {
+            background-color: #FF641D;
+            font-family: "Arial", sans-serif;
+        }
+        .embeddedServiceHelpButton .helpButton .uiButton:focus {
+            outline: 1px solid #FF641D;
+        }
+    </style>
+    
+
+    <!-- Chatbot section -->
+    
+    <script type='text/javascript' src='https://service.force.com/embeddedservice/5.0/esw.min.js'></script>
+    <script type='text/javascript'>
+        var initESW = function(gslbBaseURL) 
+        {
+            embedded_svc.settings.displayHelpButton = true; //Or false
+            embedded_svc.settings.language = ''; //For example, enter 'en' or 'en-US'
+    
+            //embedded_svc.settings.defaultMinimizedText = '...'; //(Defaults to Chat with an Expert)
+            //embedded_svc.settings.disabledMinimizedText = '...'; //(Defaults to Agent Offline)
+    
+            //embedded_svc.settings.loadingText = ''; //(Defaults to Loading)
+            //embedded_svc.settings.storageDomain = 'yourdomain.com'; //(Sets the domain for your deployment so that visitors can navigate subdomains during a chat session)
+    
+            // Settings for Chat
+            //embedded_svc.settings.directToButtonRouting = function(prechatFormData) {
+                // Dynamically changes the button ID based on what the visitor enters in the pre-chat form.
+                // Returns a valid button ID.
+            //};
+            //embedded_svc.settings.prepopulatedPrechatFields = {}; //Sets the auto-population of pre-chat form fields
+            //embedded_svc.settings.fallbackRouting = []; //An array of button IDs, user IDs, or userId_buttonId
+            //embedded_svc.settings.offlineSupportMinimizedText = '...'; //(Defaults to Contact Us)
+    
+            embedded_svc.settings.enabledFeatures = ['LiveAgent'];
+            embedded_svc.settings.entryFeature = 'LiveAgent';
+    
+            embedded_svc.init(
+                'https://thdcanada--thdcadev.sandbox.my.salesforce.com',
+                'https://thdcanada--thdcadev.sandbox.my.site.com/messaging',
+                gslbBaseURL,
+                '00D7g000000H4Lb',
+                'DOTCA_Universal_Experience_Chat',
+                {
+                    baseLiveAgentContentURL: 'https://c.la3-c1cs-ia4.salesforceliveagent.com/content',
+                    deploymentId: '5727g00000002dF',
+                    buttonId: '5737g00000003AG',
+                    baseLiveAgentURL: 'https://d.la3-c1cs-ia4.salesforceliveagent.com/chat',
+                    eswLiveAgentDevName: 'Multilingual_Bot_Chat_Agent',
+                    isOfflineSupportEnabled: false
+                }
+            );
+        };
+    
+        if (!window.embedded_svc) {
+            var s = document.createElement('script');
+            s.setAttribute('src', 'https://thdcanada--thdcadev.sandbox.my.salesforce.com/embeddedservice/5.0/esw.min.js');
+            s.onload = function() {
+                initESW(null);
+            };
+            document.body.appendChild(s);
+        } else {
+            initESW('https://service.force.com');
+        }
+    </script>
 
 
 </body>
